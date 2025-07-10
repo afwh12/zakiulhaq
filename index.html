@@ -6,8 +6,8 @@
   <title>Zaki Ul Haq | CV</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <button class="dark-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+<body class="dark-mode">
+  <button class="dark-toggle" onclick="toggleDarkMode()">Toggle Light Mode</button>
 
   <header>
     <img src="profile.jpg" alt="Zaki Ul Haq Profile Picture">
@@ -27,9 +27,9 @@
       <h2>Education</h2>
       <p><strong>Honours Bachelor of Science (HBSc)</strong><br>
       University of Toronto, St. George Campus, Toronto, ON, Canada<br>
-      September 2021 – Expected Completion: June 2025<br>
+      September 2021 – June 2025<br>
       Specialist in Psychology with extensive coursework in Neuroscience, Physiology, and Biology<br>
-      Graduating With Distinction/Magna Cum Laude<br>
+      Graduated With Distinction/Magna Cum Laude<br>
       <strong>Awards:</strong> Quinn Family Scholarship ($20,000), Bennett Scholarship ($10,000)</p>
     </section>
 
@@ -60,8 +60,7 @@
         </li>
         <li>
           <strong>Student Researcher – PSY379 Lab on Neural Cognition and Plasticity</strong><br>
-          University of
-Toronto, Toronto, ON<br>
+          University of Toronto, Toronto, ON<br>
           January 2024 – April 2024<br>
           Supervisor: Dr. Gillian Rowe<br>
           Led a pilot project investigating digital vs. handwritten note-taking on memory recall. Designed methodology, recruited participants, conducted experimental sessions, administered recall tests, analyzed data, and presented findings orally.
@@ -150,10 +149,14 @@ Toronto, Toronto, ON<br>
 
     <section>
       <h2>Skills</h2>
-      <p><strong>Data & Coding:</strong> Python, R, MATLAB, Java, C++, ImageJ, JASP</p>
-      <p><strong>Neuroimaging & AI Tools:</strong> FSL, EstrousNet, ArcGIS, Linux pipelines</p>
+      <p><strong>Data & Coding:</strong> Python (pandas, SciPy, seaborn), R, MATLAB, Java, C++, SAS, SPSS, SQL, ImageJ, JASP, Excel</p>
+      <p><strong>Statistical Methods:</strong> GLM, ANCOVA, Correlation (Pearson, Spearman, Kendall), PLS, Trend Analysis</p>
+      <p><strong>Neuroimaging & AI Tools:</strong> FSL, SPM12, CAT12, Freesurfer, EstrousNet, ArcGIS, QGIS, GeoNode, GeoServer, MapStore, TerriaJS, Linux pipelines, MNI-space alignment</p>
+      <p><strong>Visualization:</strong> Tableau (basic), matplotlib, seaborn, Power BI</p>
+      <p><strong>Data Management:</strong> REDCap, Qualtrics, Microsoft Office Suite</p>
       <p><strong>Software:</strong> Microsoft Office, Adobe Suite, Canva, BioRender</p>
-      <p><strong>Other:</strong> Scientific writing, public speaking, collaborative teamwork</p>
+      <p><strong>Certifications:</strong> TCPS2 CORE, WHMIS & Lab Safety, REB/CTO Preparation</p>
+      <p><strong>Other:</strong> Scientific writing, public speaking, collaborative teamwork, curating professional content for web and social media (e.g., Instagram, blogs), quick learner</p>
     </section>
   </main>
 
@@ -164,7 +167,23 @@ Toronto, Toronto, ON<br>
   <script>
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
+      const isDarkMode = document.body.classList.contains("dark-mode");
+      localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+      document.querySelector(".dark-toggle").textContent = isDarkMode ? "Toggle Light Mode" : "Toggle Dark Mode";
     }
+
+    // Apply saved theme and set button text on page load
+    window.onload = function() {
+      const savedTheme = localStorage.getItem("theme");
+      const toggleButton = document.querySelector(".dark-toggle");
+      if (savedTheme === "light") {
+        document.body.classList.remove("dark-mode");
+        toggleButton.textContent = "Toggle Dark Mode";
+      } else {
+        document.body.classList.add("dark-mode");
+        toggleButton.textContent = "Toggle Light Mode";
+      }
+    };
   </script>
 </body>
 </html>
