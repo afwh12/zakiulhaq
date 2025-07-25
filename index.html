@@ -148,16 +148,31 @@
     </section>
 
     <section>
-      <h2>Skills</h2>
-      <p><strong>Data & Coding:</strong> Python (pandas, SciPy, seaborn), R, MATLAB, Java, C++, SAS, SPSS, SQL, ImageJ, JASP, Excel</p>
-      <p><strong>Statistical Methods:</strong> GLM, ANCOVA, Correlation (Pearson, Spearman, Kendall), PLS, Trend Analysis</p>
-      <p><strong>Neuroimaging & AI Tools:</strong> FSL, SPM12, CAT12, Freesurfer, EstrousNet, ArcGIS, QGIS, GeoNode, GeoServer, MapStore, TerriaJS, Linux pipelines, MNI-space alignment</p>
-      <p><strong>Visualization:</strong> Tableau (basic), matplotlib, seaborn, Power BI</p>
-      <p><strong>Data Management:</strong> REDCap, Qualtrics, Microsoft Office Suite</p>
-      <p><strong>Software:</strong> Microsoft Office, Adobe Suite, Canva, BioRender</p>
-      <p><strong>Certifications:</strong> TCPS2 CORE, WHMIS & Lab Safety, REB/CTO Preparation</p>
-      <p><strong>Other:</strong> Scientific writing, public speaking, collaborative teamwork, curating professional content for web and social media (e.g., Instagram, blogs), quick learner</p>
-    </section>
+  <h2>Comprehensive Skill Set Overview</h2>
+  <div class="skills-container">
+    <img src="visual-selection.png" alt="Comprehensive Skill Set Overview" usemap="#skillmap" class="skill-map">
+
+    <map name="skillmap">
+      <area shape="rect" coords="30,60,200,100" alt="Data & Coding" onclick="showSkill('dataCoding')">
+      <area shape="rect" coords="30,130,200,170" alt="Neuroimaging" onclick="showSkill('neuroAI')">
+      <area shape="rect" coords="30,200,200,240" alt="Data Management" onclick="showSkill('dataMgmt')">
+      <area shape="rect" coords="30,270,200,310" alt="Certifications" onclick="showSkill('certs')">
+
+      <area shape="rect" coords="610,60,780,100" alt="Statistical Methods" onclick="showSkill('stats')">
+      <area shape="rect" coords="610,130,780,170" alt="Visualization" onclick="showSkill('viz')">
+      <area shape="rect" coords="610,200,780,240" alt="Software" onclick="showSkill('software')">
+      <area shape="rect" coords="610,270,780,310" alt="Other" onclick="showSkill('other')">
+    </map>
+  </div>
+
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <span class="close-btn" onclick="hidePopup()">×</span>
+      <div id="popup-text"></div>
+    </div>
+  </div>
+</section>
+
   </main>
 
   <footer>
@@ -185,5 +200,30 @@
       }
     };
   </script>
+  
+  <script>
+  const skills = {
+    dataCoding: `Python (pandas, SciPy, seaborn), R, MATLAB, Java, C++, SAS, SPSS, SQL, ImageJ, JASP, Excel`,
+    stats: `GLM, ANCOVA, Correlation (Pearson, Spearman, Kendall), PLS, Trend Analysis`,
+    neuroAI: `FSL, SPM12, CAT12, Freesurfer, EstrousNet, ArcGIS, QGIS, GeoNode, GeoServer, MapStore, TerriaJS, Linux pipelines, MNI-space alignment`,
+    viz: `Tableau (basic), matplotlib, seaborn, Power BI`,
+    dataMgmt: `REDCap, Qualtrics, Microsoft Office Suite`,
+    software: `Microsoft Office, Adobe Suite, Canva, BioRender`,
+    certs: `TCPS2 CORE, WHMIS & Lab Safety, REB/CTO Preparation`,
+    other: `Scientific writing, public speaking, collaborative teamwork, curating professional content for web and social media (e.g., Instagram, blogs), quick learner`
+  };
+
+  function showSkill(key) {
+    const popup = document.getElementById('popup');
+    const text = document.getElementById('popup-text');
+    text.innerHTML = `<strong>${key.replace(/([A-Z])/g, ' $1')}:</strong><br>${skills[key]}`;
+    popup.classList.remove('hidden');
+  }
+
+  function hidePopup() {
+    document.getElementById('popup').classList.add('hidden');
+  }
+</script>
+
 </body>
 </html>
